@@ -1,6 +1,6 @@
-import machine
-from utime import sleep
-led=machine.Pin(2,machine.Pin.OUT)
-for i in range(10):
-    led.value(not led.value())
-    sleep(0.25)
+# No implemented Code bro
+from uos import remove,listdir()
+files=listdir()
+for file in files:
+    if file not in {"OTA.py","main.py","config.py","boot.py","version.json"}:
+        remove(file)
