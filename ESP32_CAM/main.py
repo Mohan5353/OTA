@@ -2,10 +2,10 @@ import machine as mc
 import camera as cam
 from utime import sleep
 
-led = mc.Pin(2, mc.Pin.OUT)
+led = mc.Pin(4, mc.Pin.OUT)
 led.value(0)
 try:
-    cam.init(0, format=cam.JPEG)
+    cam.init(0)
 except:
     pass
 else:
@@ -15,7 +15,8 @@ else:
             led.value(1)
             img = cam.capture()
             led.value(0)
-            file = open("/sd/images_esp/" + mode + "(" + str(i) + ")" + ".jpeg", "wb")
+            file = open("/sd/{}({}).jpg".format(mode,i), "w")
             file.write(img)
             file.close()
             sleep(1.5)
+
