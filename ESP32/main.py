@@ -1,4 +1,6 @@
 import machine as m
-from time import timer
+from time import sleep
 led=m.Pin(2,m.Pin.OUT)
-t=timer.init(200,50,lambda t:led.value(not led.value()))
+for i in range(50):
+  led.value(not led.value())
+  sleep(1)
